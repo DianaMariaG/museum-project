@@ -22,7 +22,7 @@ $(document).ready(() => {
     });
 
 
-    $.get( "http://localhost:8080/api/museum/tourSchedules", function( response ) {
+    $.get("http://localhost:8080/api/museum/tourSchedules", function( response ) {
         console.log(response);
         $.each(response, function( index, value ) {
             tourScheduleMap[value.id] = value;
