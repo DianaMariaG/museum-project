@@ -18,13 +18,11 @@ import java.util.List;
 public class MuseumApiController {
     private final MuseumService museumService;
     private final TicketTypeService ticketTypeService;
-    private final BookingService bookingService;
     private final TourScheduleService tourScheduleService;
 
-    public MuseumApiController(MuseumService museumService, TicketTypeService ticketTypeService, BookingService bookingService, TourScheduleService tourScheduleService) {
+    public MuseumApiController(MuseumService museumService, TicketTypeService ticketTypeService, TourScheduleService tourScheduleService) {
         this.museumService = museumService;
         this.ticketTypeService = ticketTypeService;
-        this.bookingService = bookingService;
         this.tourScheduleService = tourScheduleService;
     }
 
@@ -33,15 +31,9 @@ public class MuseumApiController {
         return museumService.getMuseums().get(0);
     }
 
-
     @GetMapping("/ticketTypes")
     List<TicketType> getAllTicketTypes() {
         return ticketTypeService.getAllTicketTypes();
-    }
-
-    @GetMapping("/bookings")
-    List<Booking> getAllBookings() {
-        return bookingService.listBookings();
     }
 
 
@@ -50,14 +42,5 @@ public class MuseumApiController {
         return tourScheduleService.getTourSchedule();
     }
 
-    @PostMapping("/booking")
-    Booking createBooking(@RequestBody BookingDTO bookingDTO) {
-        return bookingService.createBooking(bookingDTO);
-    }
 
-    @DeleteMapping("/booking/{id}")
-    Booking deleteBooking(@PathVariable int id) {
-        return bookingService.delete(id)
-                .orElse(null);
-    }
 }

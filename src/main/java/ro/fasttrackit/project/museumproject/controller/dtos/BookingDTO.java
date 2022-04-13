@@ -14,14 +14,14 @@ public class BookingDTO { //obiectul pe care il trimit la postman
     private String customerName;
     private Museum museum;
     private TourSchedule tourSchedule;
-    private List<Ticket> tickets;
+    private Ticket ticket;
 
-    public BookingDTO(String customerName, Museum museum, TourSchedule tourSchedule, List<Ticket> tickets) {
+    public BookingDTO(String customerName, Museum museum, TourSchedule tourSchedule, Ticket ticket) {
 
         this.customerName = customerName;
         this.museum = museum;
         this.tourSchedule = tourSchedule;
-        this.tickets = new ArrayList<>(tickets);
+        this.ticket = ticket;
     }
 
     public String getCustomerName() {
@@ -48,11 +48,11 @@ public class BookingDTO { //obiectul pe care il trimit la postman
         this.tourSchedule = tourSchedule;
     }
 
-    public List<Ticket> getTickets() {
-        return tickets;
+    public Ticket getTicket() {
+        return ticket;
     }
 
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }

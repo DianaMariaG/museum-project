@@ -14,8 +14,8 @@ public class Booking {
     private String customerName;
     private double totalPrice;
 
-    @OneToMany
-    private List<Ticket> tickets;
+    @OneToOne
+    private Ticket ticket;
 
     @ManyToOne
     private Museum museum;
@@ -26,13 +26,13 @@ public class Booking {
     public Booking() {}
 
     public Booking(String ref, String customerName, double totalPrice,
-                   Museum museum, TourSchedule tourSchedule) {
+                   Museum museum, TourSchedule tourSchedule, Ticket ticket) {
         this.ref = ref;
         this.customerName = customerName;
         this.totalPrice = totalPrice;
         this.museum = museum;
         this.tourSchedule = tourSchedule;
-//        this.tickets = new ArrayList<>(tickets);
+        this.ticket = ticket;
     }
 
     public int getId() {
@@ -67,12 +67,12 @@ public class Booking {
         this.totalPrice = totalPrice;
     }
 
-    public List<Ticket> getTickets() {
-        return tickets;
+    public Ticket getTicket() {
+        return ticket;
     }
 
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 
     public Museum getMuseum() {

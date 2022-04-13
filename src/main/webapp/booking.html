@@ -29,34 +29,84 @@
         </ul>
     </div>
 </nav>
-<div>
-    <div class="container mt-2">
-        <label for="ticketTypeListId">Select Ticket Type</label>
-        <select class="form-control" id="ticketTypeListId">
-        </select><br>
-    </div>
 
-    <div class="container mt-2">
-        <label for="quantityId">Select number of tickets</label>
-        <input type="number" id="quantityId" name="quantity" min="1" max="100"><br><br>
-    </div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <form id="createBooking" class="row g-3 needs-validation" novalidate>
+            <div class="col-8">
+                <label for="ticketTypeListId" class="form-label">Select Ticket Type</label>
+                <select class="form-control" id="ticketTypeListId" required>
+                    <option selected disabled value="">Choose...</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid ticket type.
+                </div>
+            </div>
 
-    <div class="container mt-2">
-        <label for="customerNameId">Type your name</label>
-        <input type="text" id="customerNameId" name="customerName">
-    </div>
+            <div class="col-8">
+                <label for="quantityId" class="form-label">Select number of tickets</label>
+                <input class="form-control" type="number" id="quantityId" min="1" max="100" required>
+                <div class="invalid-feedback">
+                    Please choose a quantity.
+                </div>
+            </div>
 
-    <div class="container mt-2">
-        <label for="tourScheduleListId">Select Tour Schedule</label>
-        <select class="form-control" id="tourScheduleListId">
-        </select>
-    </div>
+            <div class="col-8">
+                <label for="customerNameId" class="form-label">Type your name</label>
+                <input class="form-control" type="text" id="customerNameId" required>
+                <div class="invalid-feedback">
+                    Please type your name.
+                </div>
+            </div>
 
-    <div class="container mt-2">
-        <button class="btn btn-primary" type="button" id="submitButton">Submit
-        </button>
-    </div>
+            <div class="col-8">
+                <label for="tourScheduleListId" class="form-label">Select Tour Schedule</label>
+                <select class="form-control" id="tourScheduleListId" required>
+                    <option selected disabled value="">Choose...</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid tour schedule.
+                </div>
+            </div>
 
+            <div class="col-8">
+                <button class="btn btn-primary" type="submit" id="submitButton">Submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-1"></div>
 </div>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div id="displayBooking" style="display: none">
+            <h3>Your booking has been saved with the following details: </h3>
+            <div class="container d-flex">
+                <label for="displayCustomerName">Name: </label>
+                <p id="displayCustomerName"></p>
+            </div>
+            <div class="container d-flex">
+                <label for="displayTicketType">Ticket Type: </label>
+                <p id="displayTicketType"></p>
+            </div>
+            <div class="container d-flex">
+                <label for="displayQuantity">Number of tickets: </label>
+                <p id="displayQuantity"></p>
+            </div>
+            <div class="container d-flex">
+                <label for="displayTourSchedule">Tour Schedule: </label>
+                <p id="displayTourSchedule"></p>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+
 </body>
 </html>

@@ -16,16 +16,11 @@ public class Ticket {
     @ManyToOne
     private TicketType ticketType;
 
-    @ManyToOne
-    @JsonIgnore
-    private Booking booking;
-
     public Ticket(){}
 
-    public Ticket(int quantity, TicketType ticketType, Booking booking) {
+    public Ticket(int quantity, TicketType ticketType) {
         this.quantity = quantity;
         this.ticketType = ticketType;
-        this.booking = booking;
     }
 
     public int getId() {
@@ -52,11 +47,4 @@ public class Ticket {
         this.ticketType = ticketType;
     }
 
-    public Booking getBooking() {
-        return booking;
-    }
-
-    public void setBooking(Booking booking) {
-        this.booking = booking;
-    }
 }

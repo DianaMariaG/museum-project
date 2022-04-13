@@ -36,15 +36,13 @@ public class BookingService {
     }
 
     public Booking createBooking(BookingDTO bookingDTO) {
+        Ticket savedTicket = ticketRepository.save(bookingDTO.getTicket()); //creez si salvez ticketul in db
+
         Booking booking = new Booking(generateRandomRef(),
-                bookingDTO.getCustomerName(), computeTotalPrice(bookingDTO.getTickets()),
-                bookingDTO.getMuseum(), bookingDTO.getTourSchedule());
+                bookingDTO.getCustomerName(), computeTotalPrice(bookingDTO.getTicket()),
+                bookingDTO.getMuseum(), bookingDTO.getTourSchedule(), savedTicket); //pun savedticket in booking
         bookingRepository.save(booking);
-        for (Ticket t : bookingDTO.getTickets()) {
-            t.setBooking(booking);
-        }
-        List<Ticket> savedTickets = ticketRepository.saveAll(bookingDTO.getTickets());
-        booking.setTickets(savedTickets);
+
         return booking;
     }
 
@@ -53,12 +51,8 @@ public class BookingService {
         return rand.nextString();
     }
 
-    public double computeTotalPrice(List<Ticket> tickets) {
-        double totalPrice = 0;
-        for (Ticket ticket: tickets) {
-            totalPrice = totalPrice + ticket.getTicketType().getPrice() * ticket.getQuantity();
-        }
-        return totalPrice;
+    public double computeTotalPrice(Ticket ticket) {
+        return ticket.getTicketType().getPrice() * ticket.getQuantity();
     }
 
     public Optional<Booking> delete(int id) {

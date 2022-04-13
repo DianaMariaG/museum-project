@@ -31,6 +31,10 @@ start_date varchar(10) not null,
 museum_id int not null,
 foreign key (museum_id) references museum(id));
 
+create table if not exists ticket (id int not null auto_increment primary key,
+                                   ticket_type_id int not null,
+                                   quantity int not null,
+                                   foreign key (ticket_type_id) references ticket_type(id));
 
 create table if not exists booking (id int not null auto_increment primary key,
 ref varchar(45),
@@ -38,12 +42,9 @@ museum_id int not null,
 customer_name varchar(45) not null,
 tour_schedule_id int not null,
 total_price int not null,
+ticket_id int not null,
 foreign key (museum_id) references museum(id),
+foreign key (ticket_id) references ticket(id),
 foreign key (tour_schedule_id) references tour_schedule(id));
 
-create table if not exists ticket (id int not null auto_increment primary key,
-                                   ticket_type_id int not null,
-                                   quantity int not null,
-                                   booking_id int not null,
-                                   foreign key (ticket_type_id) references ticket_type(id),
-                                   foreign key (booking_id) references booking(id));
+
