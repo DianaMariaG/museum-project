@@ -16,11 +16,11 @@ import java.util.Random;
 @Service
 public class BookingService {
     private final BookingRepository bookingRepository;
-    private final TicketRepository ticketRepository;
+    private TicketRepository ticketRepository;
 
-    public BookingService(BookingRepository bookingRepository, TicketRepository ticketRepository) {
+    public BookingService(BookingRepository bookingRepository) {
         this.bookingRepository = bookingRepository;
-        this.ticketRepository = ticketRepository;
+//        this.ticketRepository = ticketRepository;
     }
 
     public List<Booking> listBookings() {

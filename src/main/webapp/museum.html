@@ -1,5 +1,19 @@
 <html>
 <head>
+<style>
+    body {
+        background-color: #6f4e74;
+    }
+    p.ex1 {
+        margin-bottom: 60px;
+    }
+    p.ex2 {
+        margin-top: 30px;
+    }
+    h1 {text-align: center;}
+</style>
+
+
     <title class="p-3 mb-2 bg-primary text-white">Museum Application</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,42 +44,51 @@
 </nav>
 <br>
 
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div>
+            <h1 id="museumName"></h1>
+            <p class="ex2">Book your tickets to explore our incredible galleries and exhibitions this spring!
+            </p>
 
-<div class="container p-3 mb-2 bg-gradient-success text-white">
-    <div class="jumbotron bg-success">
-        <h1 id="museumName"></h1>
-        <p>Book your tickets to explore our incredible galleries and exhibitions this spring!
-            <br><br>
-            Our museum tells the stories of the extraordinary human achievement and technological advances that have helped humanity overcome challenges throughout history. From Helen Sharman’s iconic space suit to Amy Johnson’s marvellous Gipsy Moth aeroplane, these incredible stories help ignite curiosity, encourage scientific endeavour and spark the imagination.
-        </p>
-    </div>
+            <p class="ex1">Our museum tells the stories of the extraordinary human achievement and technological advances that have helped humanity overcome challenges throughout history. From Helen Sharman’s iconic space suit to Amy Johnson’s marvellous Gipsy Moth aeroplane, these incredible stories help ignite curiosity, encourage scientific endeavour and spark the imagination.
+            </p>
+            <div>
 
-    <br><br>
+                <div>
+                    <h3>Opening Times</h3>
+                    <p class="text-warning">The museum is open Tuesday - Sunday</p>
+                </div>
 
-    <div class="jumbotron bg-success">
-        <h3>Opening Times</h3>
-        <p class="text-warning">The museum is open Tuesday - Sunday</p>
-        <div style="display: flex; align-items: center";>
-            <p id="startTime"></p>
-            <p>-</p>
-            <p id="endTime"></p>
+                <div style="display: flex; align-items: center";>
+                    <p id="startTime"></p>
+                    <p>-</p>
+                    <p id="endTime"></p>
+                </div>
+                <div>
+                    <p class="ex1">Galleries start to close 30 minutes before the museum closes.</p>
+                    <h4 class="ex2">Museum Admission</h4>
+                    <p>Duration: Allow 1 hour</p>
+                    <a class="btn btn-primary" href="booking.html">BOOK</a>
+                </div>
+
+
+                <!--    <button class="btn btn-primary" data-bs-target="#add-edit-museum" data-bs-toggle="modal" type="button">BOOK NOW-->
+                <!--    </button>-->
+                <!--        <button class="btn btn-primary mb-3" data-target="#booking-modal" data-toggle="modal"-->
+                <!--                id="add-booking-main-button"-->
+                <!--                type="button">BOOK NOW-->
+                <!--        </button>-->
+
+            </div>
         </div>
-
-
-        <p>Galleries start to close 30 minutes before the museum closes.</p>
-        <br>
-        <h4>Museum Admission</h4>
-        <p>Duration: Allow 1 hour</p>
-
-        <!--    <button class="btn btn-primary" data-bs-target="#add-edit-museum" data-bs-toggle="modal" type="button">BOOK NOW-->
-        <!--    </button>-->
-<!--        <button class="btn btn-primary mb-3" data-target="#booking-modal" data-toggle="modal"-->
-<!--                id="add-booking-main-button"-->
-<!--                type="button">BOOK NOW-->
-<!--        </button>-->
-        <a class="btn btn-primary" href="booking.html">BOOK</a>
     </div>
+<!--    <div class="col-1"></div>-->
 </div>
+
+
+
 
 <br>
 <br>
