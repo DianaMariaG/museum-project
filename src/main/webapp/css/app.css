@@ -1,0 +1,43 @@
+body {
+    background-color: #d6c1da;
+}
+h1 {text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    color: #462f5d;
+    font-weight: 900;
+    font-size: 220%
+}
+h2{
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    color: #56380b;
+    font-size: 220%;
+    font-family:"math";
+}
+#displayAllBookings {
+    width:100%;
+    background-color: #d7a659;
+    font-family:"math";
+
+}
+.image{
+    width:600px;
+    height:400px;
+    float:right
+}
+.btn-primary{
+    background-color: #7213d5;
+    border-color: black;
+    width:200px;
+    height:40px;
+    margin: 0;
+    position: center;
+    left: 50%;
+}
+.paragraph{
+    font-family:"Papyrus";
+    font-size: 120%;
+    color: #462f5d;
+}

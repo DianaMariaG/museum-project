@@ -1,10 +1,10 @@
 $(document).ready(() => {
     let ticketTypeMap = {};
     let tourScheduleMap = {};
-    let data = {};
+    let bookingDTO = {};
 
     $.get( "http://localhost:8080/api/museum", function( response ) {
-        data["museum"] = response;
+        bookingDTO["museum"] = response;
         $('#museumName').text(response.name);
         $('#startTime').text(response.openTime);
         $('#endTime').text(response.closeTime);
@@ -27,22 +27,22 @@ $(document).ready(() => {
 
     $('#ticketTypeListId').change(function() {
         let ticketTypeVal = $('#ticketTypeListId').val();
-        data["ticket"] = {
+        bookingDTO["ticket"] = {
             "ticketType": ticketTypeMap[ticketTypeVal]
         }
     });
 
     $('#quantityId').change(function() {
-        data["ticket"]["quantity"] = $('#quantityId').val();
+        bookingDTO["ticket"]["quantity"] = $('#quantityId').val();
     });
 
     $('#tourScheduleListId').change(function() {
         let tourScheduleVal = $('#tourScheduleListId').val();
-        data["tourSchedule"] = tourScheduleMap[tourScheduleVal];
+        bookingDTO["tourSchedule"] = tourScheduleMap[tourScheduleVal];
     });
 
     $('#customerNameId').change(function() {
-        data["customerName"] = $('#customerNameId').val();
+        bookingDTO["customerName"] = $('#customerNameId').val();
     });
 
     let form = $('.needs-validation')[0]
@@ -54,7 +54,7 @@ $(document).ready(() => {
                 $.ajax("http://localhost:8080/api/booking", {
                     method: "POST",
                     headers: {'Content-Type': 'application/json'},
-                    data: JSON.stringify(data)
+                    data: JSON.stringify(bookingDTO)
                 }).then(booking => {
                     $('#createBooking').hide();
                     $('#customerNameId').val('');
@@ -78,36 +78,36 @@ $(document).ready(() => {
     let displayAllBookings = $('#displayAllBookings');
     if (displayAllBookings && Object.keys(displayAllBookings).length !== 0) {
 
-
-        function deleteBooking(){
-            alert("delete");
-        }
-        let that = this;
         displayAllBookings.DataTable( {
             ajax: {
                 "url": "http://localhost:8080/api/booking",
                 "dataSrc": ""
             },
             columns: [
-                { data: 'ref', title: "Reference" },
-                { data: 'customerName', title: "Customer Name"  },
-                { data: 'ticketType', title: "Ticket Type" },
-                { data: 'ticketQuantity', title: "Number of tickets" },
-                { data: 'scheduleStartDate', title: "Tour Start Time" },
-                { data: 'price', title: "Price" },
-                { data: 'id', title: "Actions"}
+                { data: 'ref', title: "Reference", width: "15%" },
+                { data: 'customerName', title: "Customer Name", width: "20%" },
+                { data: 'ticketType', title: "Ticket Type", width: "15%" },
+                { data: 'ticketQuantity', title: "Ticket No", width: "15%" },
+                { data: 'scheduleStartDate', title: "Start Time", width: "15%" },
+                { data: 'price', title: "Price", width: "15%" },
+                { data: 'id', title: "Actions", width: "5%" }
             ],
+
             columnDefs: [ {
                 "targets": 6,
                 "data": "id",
-                "render": function ( bookingId, type, row, meta ) {
-                    return '<i onclick="that.deleteBooking()" ' +
-                        'class="fa fa-trash delete-icon"></i>';
+                "render": function ( bookingId ) {
+                    return "<i class='fa fa-trash' onclick='deleteBooking(" + bookingId + ")'></i>";
                 }
             } ]
         });
-        $('.delete-icon').click(function () {
-            console.log(this);
-        });
     }
 });
+function deleteBooking(bookingId){
+    $.ajax("http://localhost:8080/api/booking/" + bookingId, {
+        method: "DELETE",
+        headers: {'Content-Type': 'application/json'},
+    }).then(response => {
+        $('#displayAllBookings').DataTable().ajax.reload();
+    })
+}

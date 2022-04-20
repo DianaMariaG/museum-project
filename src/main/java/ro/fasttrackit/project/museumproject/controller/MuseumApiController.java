@@ -1,12 +1,9 @@
 package ro.fasttrackit.project.museumproject.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ro.fasttrackit.project.museumproject.controller.dtos.BookingDTO;
-import ro.fasttrackit.project.museumproject.model.Booking;
 import ro.fasttrackit.project.museumproject.model.Museum;
 import ro.fasttrackit.project.museumproject.model.TicketType;
 import ro.fasttrackit.project.museumproject.model.TourSchedule;
-import ro.fasttrackit.project.museumproject.service.BookingService;
 import ro.fasttrackit.project.museumproject.service.MuseumService;
 import ro.fasttrackit.project.museumproject.service.TicketTypeService;
 import ro.fasttrackit.project.museumproject.service.TourScheduleService;
