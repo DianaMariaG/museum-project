@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="#">
     <title>Booking</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +33,7 @@
     <div class="col-1"></div>
     <div class="col-10">
         <h2 class="booking-header">Book your tickets</h2>
-        <form id="createBooking" class="paragraph row g-3 needs-validation" novalidate>
+        <form id="createBooking" class="needs-validation paragraph" novalidate>
 
             <div class="col-8">
                 <label for="customerNameId" class="form-label"><strong>Type your name</strong></label>
@@ -69,12 +70,13 @@
                     Please select a valid tour schedule.
                 </div>
             </div>
+            <div class="col-8">
+                <button class="mt-5 btn btn-primary" type="submit" id="submitButton">Submit
+                </button>
+            </div>
 
         </form>
-        <div class="col-8">
-            <button class="mt-5 btn btn-primary" type="submit" id="submitButton">Submit
-            </button>
-        </div>
+
     </div>
 
 
