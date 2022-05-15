@@ -23,9 +23,11 @@ h2{
 
 }
 .image{
+    display: block;
     width:600px;
     height:400px;
-    float:right
+    float:right;
+    background-position: right;
 }
 .btn-primary{
     background-color: #7213d5;
@@ -40,4 +42,64 @@ h2{
     font-family:"Papyrus";
     font-size: 120%;
     color: #462f5d;
+}
+.guest-book{
+    display: flex;
+    flex-basis: 200px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+.img{
+    display: flex;
+    width: 200px;
+    height: 150px;
+    margin-left: 40px;
+
+}
+.guest-text{
+    color: #7213d5;
+    font-style: italic;
+    text-align: center;
+    margin-left: 40px;
+
+}
+.google-map-calendar{
+    display: flex;
+    flex-basis: 400px;
+    margin-bottom: 20px;
+    justify-content: space-around;
+    padding: 10px 10px 10px 10px;
+}
+#map{
+    display: flex;
+    height: 250px;
+    width: 400px;
+    justify-content: flex-end;
+}
+#calendar{
+    display: flex;
+    justify-content: flex-start;
+    height: 250px;
+    width: 400px;
+}
+.text-map-calendar{
+    text-align: center;
+    color: #7213d5;
+    font-style: italic;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100px;
+    font-size: larger;
+    color: ivory;
+    padding-top: 30px;
+    background-color: #4b2f5d;
+}
+.link{
+    margin-right: 30px;
+
 }
